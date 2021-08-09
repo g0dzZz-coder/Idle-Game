@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanData : MonoBehaviour
+namespace IdleGame.Entities.Human
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "Human", menuName = "Entities/Human", order = 51)]
+    public class HumanData : EntityData
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

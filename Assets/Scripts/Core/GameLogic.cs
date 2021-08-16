@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace IdleGame.Core
 {
@@ -13,6 +14,8 @@ namespace IdleGame.Core
 
         protected override void OnStart()
         {
+            Application.targetFrameRate = MainHandler.Instance.Config.targetFrameRate;
+
             StartGame();
         }
 

@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class BuildingView : MonoBehaviour
+namespace IdleGame.Entities.Buildings
 {
-    // Start is called before the first frame update
-    void Start()
+    public class BuildingView : EntityViewBase, IPointerDownHandler
     {
-        
-    }
+        private Building _building;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void Init(Building building)
+        {
+            _building = building;
+        }
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+
+        }
     }
 }

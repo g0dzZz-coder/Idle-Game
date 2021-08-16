@@ -22,11 +22,16 @@ namespace IdleGame.UI
         }
         private CanvasGroup _canvasGroup;
 
+        public void Show() => Show(() => { });
+
+        public void Hide() => Hide(() => { });
+
         protected void Show(Action onComplete = null)
         {
             Root.alpha = 0f;
             Root.gameObject.SetActive(true);
 
+            Root.DOKill();
             Root.DOFade(1f, _animationDuration).OnComplete(() =>
             {
                 onComplete?.Invoke();
@@ -35,6 +40,7 @@ namespace IdleGame.UI
 
         protected void Hide(Action onComplete = null)
         {
+            Root.DOKill();
             Root.DOFade(0f, _animationDuration).OnComplete(() =>
             {
                 Root.gameObject.SetActive(false);

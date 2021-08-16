@@ -29,8 +29,8 @@ namespace IdleGame.UI
         {
             _scoreText.transform.DOKill();
 
-            GameLogic.Instance.Started -= OnGameStarted;
-            GameLogic.Instance.Ended -= OnGameEnded;
+            //GameLogic.Instance.Started -= OnGameStarted;
+            //GameLogic.Instance.Ended -= OnGameEnded;
             Player.ScoreChanged -= UpdateScore;
         }
 

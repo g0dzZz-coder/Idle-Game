@@ -7,14 +7,17 @@ namespace IdleGame.Entities.Buildings
 
     public class Building : EntityBase<BuildingData>
     {
+        [SerializeField] private BuildingView _view = default;
         [SerializeField] private InteractionTrigger _trigger = default;
 
-        private void OnEnable()
+        private void Start()
         {
+            _view.Init(this);
+
             _trigger.Interaction += OnInteraction;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
             _trigger.Interaction -= OnInteraction;
         }

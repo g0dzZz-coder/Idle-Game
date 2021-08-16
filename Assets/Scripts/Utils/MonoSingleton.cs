@@ -19,7 +19,7 @@ namespace IdleGame.Utils
         private static T _instance;
         private int _instancesInScene;
 
-        private void Awake()
+        protected void Awake()
         {
             _instancesInScene++;
 
@@ -29,13 +29,13 @@ namespace IdleGame.Utils
             OnAwake();
         }
 
-        private void Start()
+        protected void Start()
         {
             SceneManager.sceneLoaded += OnSceneLoaded;
             OnStart();
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
             var numComponents = GetComponentsInChildren<Component>().Length;
 

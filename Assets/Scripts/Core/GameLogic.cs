@@ -11,7 +11,7 @@ namespace IdleGame.Core
         public event Action Started;
         public event Action Ended;
 
-        private void Start()
+        protected override void OnStart()
         {
             StartGame();
         }

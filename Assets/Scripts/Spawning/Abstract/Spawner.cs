@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using UnityEngine;
 
-namespace IdleGame.Spawn
+namespace IdleGame.Spawning
 {
     using Entities;
 

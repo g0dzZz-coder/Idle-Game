@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IdleGame.Spawn
+namespace IdleGame.Spawning
 {
     public class HumanSpawnZone : MonoBehaviour
     {

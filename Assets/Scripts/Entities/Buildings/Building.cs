@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace IdleGame.Entities.Buildings
 {
-    using Human;
+    using People;
     using Core;
 
-    public class Building : MonoBehaviour
+    public class Building : EntityBase<BuildingData>
     {
         [SerializeField] private InteractionTrigger _trigger = default;
 
@@ -21,7 +21,8 @@ namespace IdleGame.Entities.Buildings
 
         private void OnInteraction(Human human)
         {
-            GameLogic.Instance.OnHumanInteractionWithBuildingStarted(human, this);
+            Player.Player.IncreaseScore(1);
+            GameLogic.Instance.OnHumanDestinationReached(human);
         }
     }
 }

@@ -1,23 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
 namespace IdleGame.Core
 {
-    using IdleGame.Entities.Buildings;
-    using IdleGame.Entities.Human;
+    using Entities.People;
+    using Spawning;
     using Utils;
 
-    public class GameLogic : MonoSingleton<GameLogic>
+    public class GameLogic : MonoSingleton<GameLogic>, IOnHumanSpawnedWatcher, IOnHumanDestinationReachedWatcher
     {
-        public void OnHumanSpawned(Human human)
+        public event Action Started;
+        public event Action Ended;
+
+        private void Start()
         {
-            human.Movement.SetTarget(LevelLogic.Instance.GetRandomBuilding().transform.position);
+            StartGame();
         }
 
-        public void OnHumanInteractionWithBuildingStarted(Human human, Building building)
+        public void StartGame()
         {
-            human.Movement.ReturnToStartPoint();
+            Started?.Invoke();
+        }
+
+        public void OnHumanSpawned(Human human)
+        {
+            human.SetMissionTarget(LevelLogic.Instance.GetRandomBuilding().transform.position);
+        }
+
+        public void OnHumanDestinationReached(Human human)
+        {
+            if (human.IsMissionCompleted)
+            {
+                Destroy(human.gameObject);
+                return;
+            }
+
+            human.CompleteMission();
         }
     }
 }

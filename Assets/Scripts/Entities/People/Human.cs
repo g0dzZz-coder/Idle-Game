@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IdleGame.Entities.Human
+namespace IdleGame.Entities.People
 {
     using Utils;
 
@@ -8,17 +8,31 @@ namespace IdleGame.Entities.Human
     {
         [SerializeField] private HumanMovement _movement = default;
 
-        public HumanMovement Movement => _movement;
+        public bool IsMissionCompleted { get; private set; }
 
         private void Start()
         {
             ComponentStorage.Add(this);
+
+            _movement.Init(this);
         }
 
         private void OnDestroy()
         {
             ComponentStorage.Remove(this);
             Destroyed?.Invoke(this);
+        }
+
+        public void SetMissionTarget(Vector3 position)
+        {
+            IsMissionCompleted = false;
+            _movement.SetTarget(position);
+        }
+
+        public void CompleteMission()
+        {
+            IsMissionCompleted = true;
+            _movement.ReturnToStartPoint();
         }
     }
 }

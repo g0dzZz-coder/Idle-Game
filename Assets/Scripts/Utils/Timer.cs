@@ -10,7 +10,7 @@ namespace IdleGame.Utils
         private float _interval;
         private float _elapsedTime;
 
-        private bool _isPaused;
+        private bool _isActive;
 
         public Timer(float interval, Action callback)
         {
@@ -20,11 +20,10 @@ namespace IdleGame.Utils
 
         public void Update()
         {
-            if (_isPaused)
+            if (_isActive == false)
                 return;
 
             _elapsedTime += Time.deltaTime;
-
             if (_elapsedTime < _interval)
                 return;
 
@@ -32,14 +31,26 @@ namespace IdleGame.Utils
             Reset();
         }
 
+        public void Start()
+        {
+            Reset();
+            Unpause();
+        }
+
+        public void Stop()
+        {
+            Pause();
+            Reset();
+        }
+
         public void Pause()
         {
-            _isPaused = true;
+            _isActive = false;
         }
 
         public void Unpause()
         {
-            _isPaused = false;
+            _isActive = true;
         }
 
         public void Reset()

@@ -11,7 +11,7 @@ namespace IdleGame.Player
         {
             GetBestScore();
 
-            Player.ScoreUpdated += SaveScore;
+            Player.ScoreChanged += SaveScore;
         }
 
         public static void SaveScore(int value)

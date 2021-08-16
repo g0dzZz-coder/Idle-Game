@@ -1,20 +1,45 @@
-﻿using UnityEngine;
+using DG.Tweening;
+using System;
+using UnityEngine;
 
-namespace NavySpade.UI
+namespace IdleGame.UI
 {
-    //using Animation;
-
+    [RequireComponent(typeof(CanvasGroup))]
     public class UIElement : MonoBehaviour
     {
-        public void Show()
+        [Range(0f, 1f)]
+        [SerializeField] protected float _animationDuration = 0.2f;
+
+        protected CanvasGroup Root
         {
-            gameObject.SetActive(true);
-            //AnimationExtensions.Show(transform);
+            get
+            {
+                if (_canvasGroup == null)
+                    _canvasGroup = GetComponent<CanvasGroup>();
+
+                return _canvasGroup;
+            }
+        }
+        private CanvasGroup _canvasGroup;
+
+        protected void Show(Action onComplete = null)
+        {
+            Root.alpha = 0f;
+            Root.gameObject.SetActive(true);
+
+            Root.DOFade(1f, _animationDuration).OnComplete(() =>
+            {
+                onComplete?.Invoke();
+            });
         }
 
-        public void Hide()
+        protected void Hide(Action onComplete = null)
         {
-            //AnimationExtensions.Hide(transform, () => gameObject.SetActive(false));
+            Root.DOFade(0f, _animationDuration).OnComplete(() =>
+            {
+                Root.gameObject.SetActive(false);
+                onComplete?.Invoke();
+            });
         }
     }
 }

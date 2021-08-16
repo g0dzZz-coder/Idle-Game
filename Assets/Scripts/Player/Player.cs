@@ -6,7 +6,7 @@ namespace IdleGame.Player
     {
         public static int Score { get; private set; }
 
-        public static event Action<int> ScoreUpdated;
+        public static event Action<int> ScoreChanged;
 
         public static void IncreaseScore(int value)
         {
@@ -14,13 +14,13 @@ namespace IdleGame.Player
                 return;
 
             Score += value;
-            ScoreUpdated?.Invoke(Score);
+            ScoreChanged?.Invoke(Score);
         }
 
         public static void ResetScore()
         {
             Score = 0;
-            ScoreUpdated?.Invoke(Score);
+            ScoreChanged?.Invoke(Score);
         }
 
         public static int GetBestScore()

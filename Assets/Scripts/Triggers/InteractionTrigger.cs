@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace IdleGame
 {
-    using Entities.Human;
+    using Entities.People;
     using Utils;
 
     public class InteractionTrigger : Trigger

@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace IdleGame.Spawn
+namespace IdleGame.Spawning
 {
-    using Entities.Human;
+    using Entities.People;
     using Utils;
     using Core;
 
@@ -11,11 +11,18 @@ namespace IdleGame.Spawn
         [SerializeField] private HumanSpawnZone[] _spawnZones = default;
         [SerializeField] private float _interval = 3f;
 
+        private IOnHumanSpawnedWatcher[] _watchers;
         private Timer _timer;
+
+        private void Awake()
+        {
+            _watchers = RootProvider.Instance.Root.GetComponentsInChildren<IOnHumanSpawnedWatcher>();
+        }
 
         private void Start()
         {
             _timer = new Timer(_interval, TryToSpawn);
+            _timer.Start();
         }
 
         private void Update()
@@ -34,7 +41,13 @@ namespace IdleGame.Spawn
             var randomPosition = _spawnZones.Random().GetRandomPosition();
             var human = Spawn(randomPosition);
 
-            GameLogic.Instance.OnHumanSpawned(human);
+            EmitOnHumanSpawned(human);
+        }
+
+        private void EmitOnHumanSpawned(Human human)
+        {
+            foreach (var watcher in _watchers)
+                watcher.OnHumanSpawned(human);
         }
     }
 }

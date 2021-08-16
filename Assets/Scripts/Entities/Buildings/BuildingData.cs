@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildingData : MonoBehaviour
+namespace IdleGame.Entities.Buildings
 {
-    // Start is called before the first frame update
-    void Start()
+    [CreateAssetMenu(fileName = "Building", menuName = "Entities/Building", order = 51)]
+    public class BuildingData : EntityData
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

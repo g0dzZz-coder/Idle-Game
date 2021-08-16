@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Building : MonoBehaviour
+namespace IdleGame.Entities.Buildings
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    using Human;
+    using Core;
 
-    // Update is called once per frame
-    void Update()
+    public class Building : MonoBehaviour
     {
-        
+        [SerializeField] private InteractionTrigger _trigger = default;
+
+        private void OnEnable()
+        {
+            _trigger.Interaction += OnInteraction;
+        }
+
+        private void OnDisable()
+        {
+            _trigger.Interaction -= OnInteraction;
+        }
+
+        private void OnInteraction(Human human)
+        {
+            GameLogic.Instance.OnHumanInteractionWithBuildingStarted(human, this);
+        }
     }
 }

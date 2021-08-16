@@ -4,7 +4,7 @@ namespace IdleGame.Spawn
 {
     using Entities.Human;
     using Utils;
-    using Levels;
+    using Core;
 
     public class HumanSpawner : Spawner<Human, HumanData>
     {
@@ -32,7 +32,9 @@ namespace IdleGame.Spawn
             }
 
             var randomPosition = _spawnZones.Random().GetRandomPosition();
-            Spawn(randomPosition);
+            var human = Spawn(randomPosition);
+
+            GameLogic.Instance.OnHumanSpawned(human);
         }
     }
 }

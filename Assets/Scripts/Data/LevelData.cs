@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace IdleGame.Levels
+namespace IdleGame.Data
 {
     [CreateAssetMenu(fileName = "Level", menuName = "Core/Level", order = 51)]
     public class LevelData : ScriptableObject

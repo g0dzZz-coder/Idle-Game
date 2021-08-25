@@ -9,7 +9,7 @@ namespace IdleGame.Spawning
 
         public Vector3 GetRandomPosition()
         {
-            var position = Random.insideUnitSphere * _radius;
+            var position = transform.position + Random.insideUnitSphere * _radius;
             position.y = 0f;
 
             return position;

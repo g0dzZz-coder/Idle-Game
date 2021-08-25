@@ -16,7 +16,7 @@ namespace IdleGame.Spawning
         protected virtual T Spawn(Vector3 position)
         {
             var entity = Instantiate(spawnableEntity.prefab, root).GetComponent<T>();
-            entity.transform.localPosition = position;
+            entity.transform.position = position;
 
             entity.Destroyed += OnEntityDestroyed;
 

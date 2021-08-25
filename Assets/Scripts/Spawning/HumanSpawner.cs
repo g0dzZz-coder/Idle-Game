@@ -39,6 +39,7 @@ namespace IdleGame.Spawning
             }
 
             var randomPosition = _spawnZones.Random().GetRandomPosition();
+            Debug.Log(_spawnZones.Random());
             var human = Spawn(randomPosition);
 
             EmitOnHumanSpawned(human);
@@ -48,6 +49,11 @@ namespace IdleGame.Spawning
         {
             foreach (var watcher in _watchers)
                 watcher.OnHumanSpawned(human);
+        }
+
+        public void Reset()
+        {
+            _spawnZones = GetComponentsInChildren<HumanSpawnZone>();
         }
     }
 }

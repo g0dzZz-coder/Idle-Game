@@ -12,9 +12,14 @@ namespace IdleGame.Utils
             if (enumerable == null)
                 throw new ArgumentNullException(nameof(enumerable));
 
+            if (enumerable.Count() == 1)
+                return enumerable.First();
+
             var random = new ThreadSafeRandom();
             var list = enumerable as IList<T> ?? enumerable.ToList();
-            return list.ElementAt(random.Next(0, list.Count()));
+            var index = random.Next(0, list.Count());
+
+            return list.ElementAt(index);
         }
 
         public static float GetClosestDistance<T>(this IEnumerable<T> enumerable, Vector3 position) where T : Component

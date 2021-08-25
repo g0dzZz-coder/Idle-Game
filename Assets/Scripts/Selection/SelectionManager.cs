@@ -1,4 +1,5 @@
 ﻿﻿﻿﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace IdleGame.Selection
 {
@@ -19,7 +20,7 @@ namespace IdleGame.Selection
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) == false)
+            if (Input.GetMouseButtonDown(0) == false || IsPointerOverUI())
                 return;
 
             _selector.Check(_rayProvider.CreateRay());
@@ -35,6 +36,11 @@ namespace IdleGame.Selection
 
             if (_currentSelection != null)
                 _selectionResponse.OnSelect(_currentSelection);
+        }
+
+        private bool IsPointerOverUI()
+        {
+            return EventSystem.current.currentSelectedGameObject != null;
         }
     }
 }

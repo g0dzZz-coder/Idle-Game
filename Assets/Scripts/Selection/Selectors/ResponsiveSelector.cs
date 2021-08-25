@@ -41,7 +41,7 @@ namespace IdleGame.Selection
             return _selection;
         }
 
-        private void Reset()
+        public void Reset()
         {
             _selectables = RootProvider.Instance.Root.GetComponentsInChildren<Selectable>().ToList();
         }

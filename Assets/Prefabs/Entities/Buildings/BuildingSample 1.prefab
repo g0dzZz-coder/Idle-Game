@@ -79,6 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 4f5b6023b76f88a4bba865ca68bcdbed, type: 2}
+  _name: Building
   _view: {fileID: 4447783135763770569}
   _trigger: {fileID: 4447783136213263035}
 --- !u!114 &4447783135763770569

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a7ffffa3b752047af143789b07ed0e, type: 3}
   m_Name: Building
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4447783135763770571, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
+  levels:
+    initialLevel: 1
+    upgradeCost: 5
+    gainPerLevel: 2

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4447783135763770568, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
+      propertyPath: _name
+      value: Purple Building
+      objectReference: {fileID: 0}
     - target: {fileID: 4447783135763770570, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
       propertyPath: m_RootOrder
       value: 0

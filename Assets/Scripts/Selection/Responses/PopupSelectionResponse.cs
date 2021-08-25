@@ -6,7 +6,7 @@ namespace IdleGame.Selection
 {
     public class PopupSelectionResponse : MonoBehaviour, ISelectionResponse
     {
-        [SerializeField] private UnityEvent<Building> _onSelected = new UnityEvent<Building>();
+        [SerializeField] private UnityEvent<Building> _onBuildingSelected = new UnityEvent<Building>();
         [SerializeField] private UnityEvent _onDeselected = new UnityEvent();
 
         public void OnDeselect(Transform selection)
@@ -22,7 +22,7 @@ namespace IdleGame.Selection
 
         private void OpenBuildingPopup(Building building)
         {
-            _onSelected?.Invoke(building);
+            _onBuildingSelected?.Invoke(building);
         }
     }
 }

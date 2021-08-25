@@ -5,11 +5,11 @@ namespace IdleGame.Utils
 {
     public class Timer
     {
+        public float elapsedTime;
+
         private Action _callback;
 
         private float _interval;
-        private float _elapsedTime;
-
         private bool _isActive;
 
         public Timer(float interval, Action callback)
@@ -18,13 +18,13 @@ namespace IdleGame.Utils
             _callback = callback;
         }
 
-        public void Update()
+        public void Update(float delta)
         {
             if (_isActive == false)
                 return;
 
-            _elapsedTime += Time.deltaTime;
-            if (_elapsedTime < _interval)
+            elapsedTime += delta;
+            if (elapsedTime < _interval)
                 return;
 
             _callback?.Invoke();
@@ -55,7 +55,7 @@ namespace IdleGame.Utils
 
         public void Reset()
         {
-            _elapsedTime = 0f;
+            elapsedTime = 0f;
         }
     }
 }

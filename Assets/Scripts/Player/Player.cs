@@ -17,6 +17,18 @@ namespace IdleGame.Player
             ScoreChanged?.Invoke(Score);
         }
 
+        public static void DecreaseScore(int value)
+        {
+            if (value < 1)
+                return;
+
+            Score -= value;
+            if (Score < 0)
+                Score = 0;
+
+            ScoreChanged?.Invoke(Score);
+        }
+
         public static void ResetScore()
         {
             Score = 0;

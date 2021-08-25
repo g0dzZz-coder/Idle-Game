@@ -7,13 +7,13 @@ namespace IdleGame.Entities.People
     public class Human : EntityBase<HumanData>
     {
         [SerializeField] private HumanMovement _movement = default;
+        [SerializeField] private HumanView _view = default;
 
         public bool IsMissionCompleted { get; private set; }
 
         private void Start()
         {
             ComponentStorage.Add(this);
-
             _movement.Init(this);
         }
 
@@ -33,6 +33,11 @@ namespace IdleGame.Entities.People
         {
             IsMissionCompleted = true;
             _movement.ReturnToStartPoint();
+        }
+
+        public void DestroySelf()
+        {
+            _view.OnDestroying(() => Destroy(gameObject));
         }
     }
 }

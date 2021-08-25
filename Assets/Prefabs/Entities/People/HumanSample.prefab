@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data: {fileID: 11400000, guid: 321c6bfdabdf00a4ea30db2e3df051c6, type: 2}
   _movement: {fileID: 1410666762279823349}
+  _view: {fileID: 6798194142018721974}
 --- !u!114 &1410666762279823349
 MonoBehaviour:
   m_ObjectHideFlags: 0

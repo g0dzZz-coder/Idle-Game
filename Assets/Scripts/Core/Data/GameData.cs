@@ -6,5 +6,7 @@ namespace IdleGame.Data
     public class GameData : ScriptableObject
     {
         public int targetFrameRate = 60;
+        [Min(0f)]
+        public float spawnInterval = 2f;
     }
 }

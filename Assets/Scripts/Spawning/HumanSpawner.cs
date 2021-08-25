@@ -9,7 +9,6 @@ namespace IdleGame.Spawning
     public class HumanSpawner : Spawner<Human, HumanData>
     {
         [SerializeField] private HumanSpawnZone[] _spawnZones = default;
-        [SerializeField] private float _interval = 3f;
 
         private IOnHumanSpawnedWatcher[] _watchers;
         private Timer _timer;
@@ -21,13 +20,13 @@ namespace IdleGame.Spawning
 
         private void Start()
         {
-            _timer = new Timer(_interval, TryToSpawn);
+            _timer = new Timer(MainHandler.Instance.Config.spawnInterval, TryToSpawn);
             _timer.Start();
         }
 
         private void Update()
         {
-            _timer.Update();
+            _timer.Update(Time.deltaTime);
         }
 
         private void TryToSpawn()
@@ -39,7 +38,6 @@ namespace IdleGame.Spawning
             }
 
             var randomPosition = _spawnZones.Random().GetRandomPosition();
-            Debug.Log(_spawnZones.Random());
             var human = Spawn(randomPosition);
 
             EmitOnHumanSpawned(human);

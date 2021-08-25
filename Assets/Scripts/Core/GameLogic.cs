@@ -33,7 +33,7 @@ namespace IdleGame.Core
         {
             if (human.IsMissionCompleted)
             {
-                Destroy(human.gameObject);
+                human.DestroySelf();
                 return;
             }
 

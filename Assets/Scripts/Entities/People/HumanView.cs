@@ -1,6 +1,3 @@
-using DG.Tweening;
-using UnityEngine;
-
 namespace IdleGame.Entities.People
 {
     public class HumanView : EntityViewBase
@@ -13,11 +10,6 @@ namespace IdleGame.Entities.People
         private void Start()
         {
             FadeIn();
-        }
-
-        private void OnDestroy()
-        {
-
         }
     }
 }

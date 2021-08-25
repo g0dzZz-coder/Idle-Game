@@ -10,6 +10,11 @@ namespace IdleGame.Entities
         [Range(0f, 1f)]
         [SerializeField] private float _animationDuration = 0.2f;
 
+        private void OnDestroy()
+        {
+            transform.DOKill();
+        }
+
         public void OnDestroying(Action onComplete = null)
         {
             FadeOut(onComplete);
@@ -24,7 +29,12 @@ namespace IdleGame.Entities
         public void FadeOut(Action onComplete = null)
         {
             foreach (var renderer in _renderers)
-                renderer.material.DOFade(0f, _animationDuration).OnComplete(() => onComplete?.Invoke());
+            {
+                renderer.material.DOFade(0f, _animationDuration).OnComplete(() =>
+                {
+                    onComplete?.Invoke();
+                });
+            }
         }
 
         protected void FadeOutInstantly()

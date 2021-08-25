@@ -36,6 +36,8 @@ namespace IdleGame.UI
         {
             _current = building;
             UpdateInfo();
+
+            _upgradeButton.SetFillingColor(_current.View.Color);
             Show();
         }
 

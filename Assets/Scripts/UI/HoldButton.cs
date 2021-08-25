@@ -55,6 +55,11 @@ namespace IdleGame.UI
             UpdateFilling(0f);
         }
 
+        public void SetFillingColor(Color color)
+        {
+            _fillingImage.color = color;
+        }
+
         public void Enable()
         {
             _isEnabled = true;

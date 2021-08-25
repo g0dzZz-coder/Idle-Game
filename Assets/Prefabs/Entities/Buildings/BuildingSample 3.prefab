@@ -11,6 +11,18 @@ PrefabInstance:
       propertyPath: _name
       value: Blue Building
       objectReference: {fileID: 0}
+    - target: {fileID: 4447783135763770569, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
+      propertyPath: _color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447783135763770569, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
+      propertyPath: _color.g
+      value: 0.08627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447783135763770569, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
+      propertyPath: _color.r
+      value: 0.1137255
+      objectReference: {fileID: 0}
     - target: {fileID: 4447783135763770570, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
       propertyPath: m_RootOrder
       value: 0

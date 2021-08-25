@@ -37,7 +37,10 @@ namespace IdleGame.Entities.People
 
         public void DestroySelf()
         {
-            _view.OnDestroying(() => Destroy(gameObject));
+            _view.OnDestroying(() =>
+            {
+                Destroy(gameObject);
+            });
         }
     }
 }

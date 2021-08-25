@@ -11,6 +11,14 @@ PrefabInstance:
       propertyPath: _name
       value: Purple Building
       objectReference: {fileID: 0}
+    - target: {fileID: 4447783135763770569, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
+      propertyPath: _color.b
+      value: 0.9725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447783135763770569, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
+      propertyPath: _color.g
+      value: 0.078431375
+      objectReference: {fileID: 0}
     - target: {fileID: 4447783135763770570, guid: 55c709cc54ae73b4da9a56d615569595, type: 3}
       propertyPath: m_RootOrder
       value: 0

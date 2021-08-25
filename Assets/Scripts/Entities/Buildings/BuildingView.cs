@@ -1,19 +1,11 @@
-using UnityEngine.EventSystems;
+using UnityEngine;
 
 namespace IdleGame.Entities.Buildings
 {
-    public class BuildingView : EntityViewBase, IPointerDownHandler
+    public class BuildingView : EntityViewBase
     {
-        private Building _building;
+        [SerializeField] private Color _color = Color.cyan;
 
-        public void Init(Building building)
-        {
-            _building = building;
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-
-        }
+        public Color Color => _color;
     }
 }

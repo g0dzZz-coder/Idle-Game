@@ -13,6 +13,8 @@ namespace IdleGame.Entities.Buildings
         [SerializeField] private BuildingView _view = default;
         [SerializeField] private InteractionTrigger _trigger = default;
 
+        public BuildingView View => _view;
+
         public string Name => _name;
         public int Level { get; private set; }
         public int Reward { get; private set; }
@@ -21,7 +23,6 @@ namespace IdleGame.Entities.Buildings
         private void Start()
         {
             SetLevel(Data.levels.initialLevel);
-            _view.Init(this);
 
             _trigger.Interaction += OnInteraction;
         }
